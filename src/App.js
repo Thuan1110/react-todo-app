@@ -1,23 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import styles from "./App.module.css";
+import TodoInput from "./components/Todo/Form/TodoInput";
+import TodoList from "./components/Todo/TodoList/TodoList";
 
 function App() {
+  const [todoList, setTodoList] = useState([]);
+  const [enteredValue, setEnteredValue] = useState("");
+  const [editId, setEditId] = useState("");
+  const [isValid, setIsValid] = useState(true);
+
+  const addTodoHandler = (todo) => {
+    setTodoList((prevTodoList) => {
+      return [...prevTodoList, { item: todo, id: Math.random().toString() }];
+    });
+  };
+
+  const deleteTodoHandler = (todoId) => {
+    setTodoList((prevTodoList) => {
+      const newTodo = prevTodoList.filter((item) => item.id !== todoId);
+      return newTodo;
+    });
+  };
+
+  const editTodoHandler = (todoId) => {
+    setEnteredValue(() => {
+      const editTodo = [...todoList].find((item) => item.id === todoId);
+      return editTodo.item;
+    });
+    setEditId(todoId);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.app}>
+      <h1>TODO LIST</h1>
+      <TodoInput
+        enteredValue={enteredValue}
+        setEnteredValue={setEnteredValue}
+        editId={editId}
+        setEditId={setEditId}
+        todoList={todoList}
+        setTodoList={setTodoList}
+        isValid={isValid}
+        setIsValid={setIsValid}
+        onAddTodo={addTodoHandler}
+      />
+      <TodoList
+        todoList={todoList}
+        onDeleteTodo={deleteTodoHandler}
+        onEditTodo={editTodoHandler}
+      />
     </div>
   );
 }

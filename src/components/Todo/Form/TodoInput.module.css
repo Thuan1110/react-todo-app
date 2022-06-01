@@ -1,0 +1,23 @@
+.form {
+  width: 30%;
+  height: auto;
+  /* border-radius: 10px; */
+  /* box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2); */
+  margin: 30px auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.form input {
+  width: 70%;
+  height: 25px;
+  flex-direction: column;
+}
+.message {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: red;
+  margin-left: -320px;
+  margin-top: -25px;
+}

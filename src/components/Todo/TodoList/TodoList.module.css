@@ -1,0 +1,15 @@
+.todos {
+  width: 30%;
+  height: auto;
+  margin: 40px auto;
+}
+
+.todos ul {
+  list-style: none;
+  padding: 20px;
+}
+
+.message {
+  text-align: center;
+  margin: 30px;
+}

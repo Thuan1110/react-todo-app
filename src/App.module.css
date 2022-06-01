@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  width: auto;
+  height: 100%;
+  overflow: auto;
+}
+
+.app h1 {
+  text-align: center;
+  margin: 50px;
+}
+
+/* .app p {
+  text-align: center;
+} */
