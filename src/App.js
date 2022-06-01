@@ -24,7 +24,7 @@ function App() {
 
   const editTodoHandler = (todoId) => {
     setEnteredValue(() => {
-      const editTodo = [...todoList].find((item) => item.id === todoId);
+      const editTodo = todoList.find((item) => item.id === todoId);
       return editTodo.item;
     });
     setEditId(todoId);

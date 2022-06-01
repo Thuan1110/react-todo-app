@@ -10,10 +10,8 @@ function TodoInput(props) {
   const formSubmitHandler = (event) => {
     event.preventDefault();
     if (props.editId) {
-      const editTodo = [...props.todoList].find(
-        (item) => item.id === props.editId
-      );
-      const updatedTodoList = [...props.todoList].map((todo) =>
+      const editTodo = props.todoList.find((item) => item.id === props.editId);
+      const updatedTodoList = props.todoList.map((todo) =>
         todo.id === editTodo.id
           ? (todo = { id: todo.id, item: props.enteredValue })
           : { id: todo.id, item: todo.item }
